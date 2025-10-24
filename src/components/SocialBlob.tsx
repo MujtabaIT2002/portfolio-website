@@ -1,7 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaInstagram, FaGithub, FaLinkedin, FaReddit, FaEnvelope } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaGithub,
+  FaLinkedin,
+  FaReddit,
+} from "react-icons/fa";
+import { SiGmail } from "react-icons/si"; // ✅ Gmail logo
 
 export default function SocialBlob() {
   return (
@@ -113,7 +119,7 @@ export default function SocialBlob() {
         {[
           {
             icon: FaInstagram,
-            href: "https://www.instagram.com/mujtaba.tariq.184?igsh=MWE0Z2dtZmY3YTJ0YQ%3D%3D&utm_source=qr",
+            href: "https://www.instagram.com/mujtaba.tariq.184",
             color: "text-pink-400",
             hoverColor: "text-pink-300",
           },
@@ -136,10 +142,10 @@ export default function SocialBlob() {
             hoverColor: "text-orange-300",
           },
           {
-            icon: FaEnvelope,
-            href: "mailto:mujtabatariq01@gmail.com",
-            color: "text-purple-300",
-            hoverColor: "text-purple-200",
+            icon: SiGmail, // ✅ Gmail icon
+            href: "https://mail.google.com/mail/?view=cm&fs=1&to=Mujtabatariq01@gmail.com",
+            color: "text-red-400",
+            hoverColor: "text-red-300",
           },
         ].map((social, index) => (
           <motion.a
