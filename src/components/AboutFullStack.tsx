@@ -30,7 +30,7 @@ export default function AboutFullStack() {
           </h2>
 
           <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-            I'm a passionate{" "}
+            I&apos;m a passionate{" "}
             <span className="font-semibold text-indigo-400">
               Full Stack Developer
             </span>{" "}
