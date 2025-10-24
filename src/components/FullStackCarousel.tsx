@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import projects from "../app/Data/projectsData";
 
@@ -98,7 +98,7 @@ export default function FullstackCarousel() {
             key={index}
             className="min-w-[280px] sm:min-w-[350px] md:min-w-[400px] bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-2xl p-6 text-gray-100 hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(6,182,212,0.25)]"
           >
-            <img
+            <Image
               src={project.image}
               alt={project.title}
               className="w-full h-48 object-cover rounded-xl mb-4"
