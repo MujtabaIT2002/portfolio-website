@@ -15,10 +15,9 @@ export interface Project {
 }
 
 const projects: Project[] = [
-  // ⚡ ---------- AI AUTOMATION PROJECTS ----------
   {
     id: 1,
-    title: "Marketing Assistant Bot",
+    title: "Phi-3 Mini Marketing AI Assistant",
     category: "ai",
     description:
       "A fine-tuned Phi-3 Mini model using QLoRA to generate engaging ad copy, product descriptions, and social media captions efficiently.",
@@ -27,15 +26,20 @@ const projects: Project[] = [
     demoLink: "",
     caseStudy: {
       overview:
-        "An AI-powered content generator that produces brand-consistent marketing material using Microsoft’s Phi-3 Mini model fine-tuned with QLoRA.",
-      techStack: ["Python", "Transformers", "PEFT (QLoRA)", "BitsAndBytes", "Hugging Face"],
+        "An AI-powered content generator that produces brand-consistent marketing material using Microsoft's Phi-3 Mini model fine-tuned with QLoRA on a curated 400-sample marketing dataset.",
+      techStack: [
+        "Python",
+        "Hugging Face Transformers",
+        "PEFT (QLoRA)",
+        "4-bit NF4 Quantization",
+        "CUDA",
+      ],
       problem:
         "Manual content creation is repetitive and inconsistent, making it difficult for businesses to maintain brand tone and efficiency.",
       solution:
-        "Implemented a lightweight fine-tuning pipeline for Phi-3 Mini using QLoRA, enabling small businesses to auto-generate creative, platform-specific marketing content efficiently.",
+        "Applied 4-bit NF4 quantization, QLoRA, PEFT, gradient checkpointing, and paged AdamW to fine-tune Phi-3 Mini locally on a GTX 1650 4GB GPU, enabling small businesses to auto-generate creative, platform-specific marketing content with improved tone control and brand-specific phrasing.",
     },
   },
-
   {
     id: 2,
     title: "Protein Antigenicity Prediction System",
@@ -55,38 +59,28 @@ const projects: Project[] = [
         "Developed a web-based system that processes protein FASTA sequences and predicts antigenicity instantly through a trained CNN ensemble, improving research efficiency.",
     },
   },
-
   {
-  id: 3,
-  title: "Solace Pixel — AI Instagram Post Generator",
-  category: "ai",
-  description:
-    "An AI automation tool that generates, stylizes, and uploads Instagram posts with captions and hashtags automatically — currently powering a live account.",
-  image: "Solace.jpg",
-  codeLink: "https://github.com/MujtabaIT2002/solace-pixel",
-  demoLink: "https://www.instagram.com/solace.in.pixel/",
-  caseStudy: {
-    overview:
-      "Solace Pixel is an AI-driven content automation system that converts simple text prompts and assets into complete, visually appealing Instagram posts. The system is currently used to manage the live Instagram account [@solace.in.pixel](https://www.instagram.com/solace.in.pixel/), showcasing how AI can handle consistent brand aesthetics and scheduling.",
-    techStack: [
-      "Python",
-      "Streamlit",
-      "Cloudinary API",
-      "Meta Graph API",
-      "Pillow",
-      "dotenv",
-    ],
-    problem:
-      "Content creators and small brands spend hours designing, captioning, and uploading posts manually — making it difficult to maintain a consistent posting schedule and brand tone.",
-    solution:
-      "Built an automated pipeline that takes text and images as input, generates stylized designs, crafts creative captions and hashtags, and uploads the posts directly to Instagram via the Meta Graph API. The live account [@solace.in.pixel](https://www.instagram.com/solace.in.pixel/) demonstrates the results generated entirely through this AI-powered workflow.",
+    id: 3,
+    title: "Solace Pixel — AI Instagram Post Generator",
+    category: "ai",
+    description:
+      "An AI automation tool that generates, stylizes, and uploads Instagram posts with captions and hashtags automatically — currently powering a live account.",
+    image: "Solace.jpg",
+    codeLink: "https://github.com/MujtabaIT2002/solace-pixel",
+    demoLink: "https://www.instagram.com/solace.in.pixel/",
+    caseStudy: {
+      overview:
+        "Solace Pixel is an AI-driven content automation system that converts simple text prompts and assets into complete, visually appealing Instagram posts. The system is currently used to manage the live Instagram account @solace.in.pixel, showcasing how AI can handle consistent brand aesthetics and scheduling.",
+      techStack: ["Python", "Streamlit", "Cloudinary API", "Meta Graph API", "Pillow", "dotenv"],
+      problem:
+        "Content creators and small brands spend hours designing, captioning, and uploading posts manually — making it difficult to maintain a consistent posting schedule and brand tone.",
+      solution:
+        "Built an automated pipeline that takes text and images as input, generates stylized designs, crafts creative captions and hashtags, and uploads the posts directly to Instagram via the Meta Graph API. The live account @solace.in.pixel demonstrates the results generated entirely through this AI-powered workflow.",
+    },
   },
-},
-
-
   {
     id: 4,
-    title: "E-Commerce Product Scraper",
+    title: "Terminal-Based Daraz Scraper",
     category: "ai",
     description:
       "A Playwright-based automation that extracts structured data from Daraz for research and market analysis.",
@@ -100,135 +94,94 @@ const projects: Project[] = [
       problem:
         "Tracking product details manually from multiple pages is inefficient and prone to errors.",
       solution:
-        "Built a scraper that searches for items, extracts structured details (titles, prices, ratings), and exports datasets in JSON format for further processing.",
+        "Built a CLI scraper that searches for items, extracts structured details (titles, prices, ratings, reviews, screenshots), and exports datasets in JSON format for market research and price comparison.",
     },
   },
-
-  // ⚙️ ---------- FULLSTACK PROJECTS ----------
   {
     id: 5,
-    title: "React Blog App",
-    category: "fullstack",
-    description:
-      "A responsive React-based blog platform allowing users to create, edit, and delete posts in real time.",
-    image: "Blog_app.jpg",
-    codeLink: "https://github.com/MujtabaIT2002/BlogApp-React",
-    demoLink: "https://blog-app-react-nine.vercel.app",
-    caseStudy: {
-      overview:
-        "A clean, modern blogging platform that demonstrates CRUD operations, React state management, and responsive UI principles.",
-      techStack: ["React", "Vite", "Tailwind CSS", "Local Storage"],
-      problem:
-        "Many blogging tools are heavy and require backend integration even for personal or small-scale projects.",
-      solution:
-        "Built a lightweight React app that handles posts entirely on the frontend while maintaining a structured, scalable architecture.",
-    },
-  },
-
-  {
-    id: 6,
-    title: "WeatherApp",
-    category: "fullstack",
-    description:
-      "A responsive weather dashboard built with React that fetches real-time weather data via API.",
-    image: "Weather_app.jpg",
-    codeLink: "https://github.com/MujtabaIT2002/weather-app",
-    demoLink: "https://dep-task-4.vercel.app",
-    caseStudy: {
-      overview:
-        "A simple, fast, and visually appealing weather app that provides real-time global weather updates.",
-      techStack: ["React", "OpenWeatherMap API", "Tailwind CSS"],
-      problem:
-        "Users often struggle with cluttered or slow-loading weather apps filled with unnecessary data.",
-      solution:
-        "Developed a clean interface that instantly displays temperature, humidity, and forecast data in a compact and user-friendly layout.",
-    },
-  },
-
-  {
-    id: 7,
-    title: "FitTrack",
-    category: "fullstack",
-    description:
-      "A MERN-based fitness tracker with authentication, workout logs, and progress visualization.",
-    image: "Fitness_app.jpg",
-    codeLink: "https://github.com/MujtabaIT2002/Fitness_frontend",
-    demoLink: "https://fitness-frontend-indol.vercel.app",
-    caseStudy: {
-      overview:
-        "A complete fitness tracker for users to record workouts, track goals, and monitor progress visually.",
-      techStack: ["MongoDB", "Express.js", "React", "Node.js", "JWT Auth"],
-      problem:
-        "Fitness enthusiasts lack simple tools to monitor workouts and progress trends securely.",
-      solution:
-        "Created a full-featured MERN stack app with secure authentication, daily progress logs, and dynamic data visualization using charts.",
-    },
-  },
-
-  {
-    id: 8,
-    title: "Macrosoar Template",
-    category: "fullstack",
-    description:
-      "A modern, responsive software company website template with a corporate design and fluid navigation.",
-    image: "MacroSoar.jpg",
-    codeLink: "https://github.com/MujtabaIT2002/software-company-template",
-    demoLink: "https://software-company-template.vercel.app",
-    caseStudy: {
-      overview:
-        "A professional web template built to help startups or software firms establish a clean digital presence quickly.",
-      techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
-      problem:
-        "Many startups struggle with creating modern, responsive websites that reflect their brand identity.",
-      solution:
-        "Designed a ready-to-deploy React template with smooth animations, responsive layouts, and customizable sections for service-based businesses.",
-    },
-  },
-
-  {
-    id: 9,
     title: "Smart Construction Model",
-    category: "ai",
+    category: "fullstack",
     description:
-      "An intelligent real estate system integrating web development and ML for property cost estimation and recommendations.",
+      "An intelligent real estate system integrating web development and ML for construction cost estimation, society analysis, and property price prediction.",
     image: "Smart_construction.jpg",
     codeLink: "https://github.com/MujtabaIT2002/Smart_Construction_Model",
     demoLink: "https://www.youtube.com/watch?v=QcEYbaHG06I",
     caseStudy: {
       overview:
-        "A hybrid AI + web solution for real estate analytics — combining machine learning with fullstack development to predict costs and suggest investment areas.",
+        "A hybrid AI + web solution for real estate analytics — combining machine learning with full-stack development to estimate construction costs, recommend societies, and predict house/plot price trends.",
       techStack: [
-        "React (Vite, Tailwind CSS)",
+        "React.js",
         "Node.js",
         "Flask",
-        "Python (Scikit-learn)",
-        "Prisma",
         "PostgreSQL",
+        "Prisma",
+        "XGBoost",
+        "K-means",
+        "KNN",
+        "Google Maps API",
+        "JWT",
       ],
       problem:
         "Manual cost estimation and site selection in real estate is unreliable and lacks data-driven insights.",
       solution:
-        "Built a cross-integrated platform where AI models estimate costs and suggest locations while users interact through a clean React + Flask interface.",
+        "Built a cost estimation module using area, material category, labor, and cost-tier inputs; a society search and recommendation system using Google Maps, geolocation data, K-means clustering, and KNN; and XGBoost-based prediction models for house and plot price trends — all behind secure JWT authentication, an admin panel, and a PostgreSQL database via Prisma ORM.",
     },
   },
-
   {
-    id: 10,
-    title: "Smart Construction Model — Web Interface",
-    category: "fullstack",
+    id: 6,
+    title: "Medical AI Assistant Bot",
+    category: "ai",
     description:
-      "A fullstack web interface for the Smart Construction Model, enabling real-time property analytics and AI integration.",
-    image: "Smart_construction.jpg",
-    codeLink: "https://github.com/MujtabaIT2002/Smart_Construction_Model",
-    demoLink: "https://www.youtube.com/watch?v=QcEYbaHG06I",
+      "An AI-powered medical assistant that collects symptoms, asks severity-based follow-up questions, and guides users toward relevant medical support and doctor recommendations.",
+    image: "medical_assistant.jpg",
+    codeLink: "",
+    demoLink: "",
     caseStudy: {
       overview:
-        "The frontend system powering the Smart Construction Model’s interactive dashboard and data visualization layer.",
-      techStack: ["React", "Node.js", "Flask", "Tailwind CSS"],
+        "A practical healthcare assistant focused on symptom understanding, doctor matching, and user-friendly interaction, built with a structured triage-style conversation flow.",
+      techStack: ["Python", "Web Scraping", "LLM Integration", "REST APIs", "Healthcare Automation"],
       problem:
-        "AI-driven insights need intuitive dashboards to communicate data effectively to end-users.",
+        "Users often struggle to gauge how urgent a symptom is or which specialist to consult, especially without easy access to structured medical guidance.",
       solution:
-        "Developed a fullstack React-based interface with Flask APIs, allowing seamless visualization of property cost predictions and comparisons.",
+        "Designed a triage-style conversation flow separating general guidance, urgent symptoms, and doctor recommendation scenarios, paired with a scraping workflow that collects top doctor data from Marham for doctor discovery and recommendation.",
+    },
+  },
+  {
+    id: 7,
+    title: "X-ray Image Classification",
+    category: "ai",
+    description:
+      "A web application for classifying X-ray images as Normal or COVID-19 using a computer vision and machine learning pipeline.",
+    image: "xray.jpg",
+    codeLink: "",
+    demoLink: "",
+    caseStudy: {
+      overview:
+        "A computer vision web app that classifies chest X-ray images, displaying model evaluation outputs including accuracy, confusion matrix, and ROC curve through the application interface.",
+      techStack: ["Python", "Flask", "OpenCV", "Scikit-learn", "KNN"],
+      problem:
+        "Manually screening X-ray images for signs of COVID-19 is slow and depends heavily on specialist availability.",
+      solution:
+        "Preprocessed X-ray images with OpenCV (RGB-to-grayscale conversion, resizing, normalization) and trained a KNN classifier integrated into a Flask backend for real-time image classification.",
+    },
+  },
+  {
+    id: 8,
+    title: "Prayer Time Calculation Engine",
+    category: "fullstack",
+    description:
+      "A command-line prayer time engine that calculates Fajr, Dhuhr, Asr, Maghrib, and Isha timings from location-based inputs.",
+    image: "prayer.jpg",
+    codeLink: "",
+    demoLink: "",
+    caseStudy: {
+      overview:
+        "A lightweight CLI workflow for quick local prayer-time calculation without depending on external scraping services.",
+      techStack: ["Node.js", "Python", "CLI Development", "Astronomical Algorithms"],
+      problem:
+        "Many prayer time tools rely on external APIs or scraping, which can be slow or unreliable for quick local use.",
+      solution:
+        "Implemented astronomical calculations including solar declination, equation of time, solar noon, hour angles, and angle-based prayer rules to compute accurate timings entirely offline.",
     },
   },
 ];

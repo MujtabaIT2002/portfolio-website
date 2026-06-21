@@ -11,12 +11,12 @@ import { SiGmail } from "react-icons/si"; // ✅ Gmail logo
 
 export default function SocialBlob() {
   return (
-    <div className="relative flex items-center justify-center w-full h-[400px] md:h-[550px] overflow-hidden bg-black">
+    <div className="relative flex items-center justify-center w-full h-[400px] md:h-[550px] overflow-hidden bg-flame-ink rounded-3xl">
       {/* 🌈 Multi-layer Animated Blob Background */}
       <div className="relative w-full h-full">
         {/* Primary Blob */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 rounded-full blur-xl opacity-80"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold rounded-full blur-xl opacity-80"
           animate={{
             x: ["-20%", "20%", "-20%"],
             y: ["-10%", "10%", "-10%"],
@@ -39,7 +39,7 @@ export default function SocialBlob() {
 
         {/* Secondary Blob */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[350px] md:h-[350px] bg-gradient-to-r from-cyan-500 via-blue-500 to-teal-400 rounded-full blur-lg opacity-60"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[350px] md:h-[350px] bg-gradient-to-r from-flame-gold via-flame-crimson to-flame-scarlet rounded-full blur-lg opacity-60"
           animate={{
             x: ["15%", "-15%", "15%"],
             y: ["15%", "-15%", "15%"],
@@ -62,7 +62,7 @@ export default function SocialBlob() {
 
         {/* Tertiary Blob */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-full blur-md opacity-50"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-gradient-to-r from-flame-gold via-flame-crimson to-flame-scarlet rounded-full blur-md opacity-50"
           animate={{
             scale: [1, 1.5, 1],
             rotate: [90, 270, 90],
@@ -83,7 +83,7 @@ export default function SocialBlob() {
 
         {/* ✨ Glowing Particles */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full blur-sm"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-flame-cream rounded-full blur-sm"
           animate={{
             x: [-100, 100, -50, 50, -100],
             y: [-50, 50, -100, 100, -50],
@@ -98,7 +98,7 @@ export default function SocialBlob() {
         />
 
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-cyan-300 rounded-full blur-sm"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-flame-gold rounded-full blur-sm"
           animate={{
             x: [80, -80, 40, -40, 80],
             y: [-80, 80, -40, 40, -80],
@@ -174,7 +174,7 @@ export default function SocialBlob() {
 
       {/* ✨ Floating Text */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 text-sm font-light tracking-wider"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-flame-cream/70 text-base font-light tracking-wider"
         animate={{
           opacity: [0.3, 1, 0.3],
           y: [0, -5, 0],

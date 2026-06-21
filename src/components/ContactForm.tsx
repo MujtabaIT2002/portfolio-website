@@ -68,8 +68,8 @@ export default function ContactForm() {
         </div>
       )}
 
-      <div className="flex flex-col gap-4 bg-black/40 backdrop-blur-md border border-white/10 p-6 sm:p-8 rounded-2xl shadow-lg text-white w-full max-w-lg mx-auto">
-        <h2 className="text-2xl font-semibold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-500">
+      <div className="flex flex-col gap-4 bg-flame-cream/10 backdrop-blur-md border border-flame-scarlet/30 p-6 sm:p-8 rounded-2xl shadow-lg text-flame-cream w-full max-w-lg mx-auto">
+        <h2 className="text-2xl font-semibold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold">
           Get in Touch 👋
         </h2>
 
@@ -81,7 +81,7 @@ export default function ContactForm() {
           placeholder="Your Name"
           required
           disabled={isLoading}
-          className="w-full p-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-gray-400 disabled:opacity-50"
+          className="w-full p-3 rounded-lg text-base sm:text-lg bg-flame-cream/10 border border-flame-cream/20 text-flame-cream focus:outline-none focus:ring-2 focus:ring-flame-gold placeholder-flame-cream/40 disabled:opacity-50"
         />
 
         <input
@@ -92,7 +92,7 @@ export default function ContactForm() {
           placeholder="Your Email"
           required
           disabled={isLoading}
-          className="w-full p-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-gray-400 disabled:opacity-50"
+          className="w-full p-3 rounded-lg text-base sm:text-lg bg-flame-cream/10 border border-flame-cream/20 text-flame-cream focus:outline-none focus:ring-2 focus:ring-flame-gold placeholder-flame-cream/40 disabled:opacity-50"
         />
 
         <textarea
@@ -103,14 +103,14 @@ export default function ContactForm() {
           rows={5}
           required
           disabled={isLoading}
-          className="w-full p-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-gray-400 disabled:opacity-50"
+          className="w-full p-3 rounded-lg text-base sm:text-lg bg-flame-cream/10 border border-flame-cream/20 text-flame-cream focus:outline-none focus:ring-2 focus:ring-flame-gold placeholder-flame-cream/40 disabled:opacity-50"
         ></textarea>
 
         <button
           type="button"
           onClick={handleSubmit}
           disabled={isLoading}
-          className="mt-2 w-full bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 py-3 rounded-lg font-semibold text-white transition-transform transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="mt-2 w-full bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold py-3 rounded-lg font-semibold text-base sm:text-lg text-flame-cream transition-transform transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? "Sending..." : "Send Message"}
         </button>
