@@ -9,11 +9,11 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative bg-flame-ink py-24 px-6 overflow-hidden"
+      className="relative bg-flame-cream py-16 sm:py-20 px-6 overflow-hidden"
     >
       <FlameGlow variant="reverse" />
 
-      <div className="relative text-center mb-16">
+      <div className="relative text-center mb-10 sm:mb-12">
         <span className="inline-block px-4 py-1 rounded-full bg-flame-crimson text-flame-cream text-sm uppercase tracking-[0.2em] font-semibold mb-6">
           Get In Touch
         </span>

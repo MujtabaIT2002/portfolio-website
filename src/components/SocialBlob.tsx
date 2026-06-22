@@ -7,12 +7,12 @@ import {
   FaLinkedin,
   FaReddit,
 } from "react-icons/fa";
-import { SiGmail } from "react-icons/si"; // ✅ Gmail logo
+import { SiGmail } from "react-icons/si";
 
 export default function SocialBlob() {
   return (
     <div className="relative flex items-center justify-center w-full h-[400px] md:h-[550px] overflow-hidden bg-flame-ink rounded-3xl">
-      {/* 🌈 Multi-layer Animated Blob Background */}
+      {/* Multi-layer animated blob background */}
       <div className="relative w-full h-full">
         {/* Primary Blob */}
         <motion.div
@@ -81,7 +81,7 @@ export default function SocialBlob() {
           }}
         />
 
-        {/* ✨ Glowing Particles */}
+        {/* Glowing particles */}
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-flame-cream rounded-full blur-sm"
           animate={{
@@ -114,7 +114,7 @@ export default function SocialBlob() {
         />
       </div>
 
-      {/* 🌐 Centered Social Icons */}
+      {/* Centered social icons */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-wrap justify-center gap-6 md:gap-8 z-10">
         {[
           {
@@ -142,7 +142,7 @@ export default function SocialBlob() {
             hoverColor: "text-orange-300",
           },
           {
-            icon: SiGmail, // ✅ Gmail icon
+            icon: SiGmail,
             href: "https://mail.google.com/mail/?view=cm&fs=1&to=Mujtabatariq01@gmail.com",
             color: "text-red-400",
             hoverColor: "text-red-300",
@@ -172,7 +172,7 @@ export default function SocialBlob() {
         ))}
       </div>
 
-      {/* ✨ Floating Text */}
+      {/* Floating text */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-flame-cream/70 text-base font-light tracking-wider"
         animate={{

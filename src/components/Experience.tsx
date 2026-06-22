@@ -8,11 +8,11 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative bg-flame-ink py-24 px-6 overflow-hidden"
+      className="relative bg-flame-cream py-16 sm:py-20 px-6 overflow-hidden"
     >
       <FlameGlow variant="reverse" />
 
-      <div className="relative text-center mb-16">
+      <div className="relative text-center mb-10 sm:mb-12">
         <span className="inline-block px-4 py-1 rounded-full bg-flame-crimson text-flame-cream text-sm uppercase tracking-[0.2em] font-semibold mb-6">
           Career
         </span>
@@ -75,9 +75,9 @@ export default function Experience() {
                     alignRight ? "md:ml-auto" : ""
                   }`}
                 >
-                  <div className="bg-flame-cream/5 border-2 border-flame-scarlet/35 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-[0_0_25px_rgba(245,212,105,0.4)] hover:border-flame-gold/60 transition-all">
+                  <div className="bg-flame-ink/5 border-2 border-flame-scarlet/35 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-[0_0_25px_rgba(245,212,105,0.4)] hover:border-flame-gold/60 transition-all">
                     <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <h3 className="font-heading text-xl sm:text-2xl text-flame-gold">
+                      <h3 className="font-heading text-xl sm:text-2xl text-flame-crimson">
                         {role.role}
                       </h3>
                       {isOngoing && (
@@ -86,13 +86,13 @@ export default function Experience() {
                         </span>
                       )}
                     </div>
-                    <p className="text-flame-cream font-semibold text-base sm:text-lg">
+                    <p className="text-flame-ink font-semibold text-base sm:text-lg">
                       {role.company} · {role.location}
                     </p>
-                    <p className="text-flame-cream/60 text-sm sm:text-base mb-4">
+                    <p className="text-flame-ink/60 text-sm sm:text-base mb-4">
                       {role.startDate} – {role.endDate ?? "Present"}
                     </p>
-                    <ul className="text-flame-cream/80 text-base space-y-1.5 list-disc list-inside text-left">
+                    <ul className="text-flame-ink/80 text-base space-y-1.5 list-disc list-inside text-left">
                       {role.bullets.map((bullet, i) => (
                         <li key={i}>{bullet}</li>
                       ))}

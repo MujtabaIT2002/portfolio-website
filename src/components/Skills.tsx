@@ -103,7 +103,7 @@ const CATEGORIES: SkillCategory[] = [
   },
 ];
 
-const ICON_COLORS = ["text-flame-crimson", "text-flame-scarlet", "text-flame-gold"];
+const ICON_COLORS = ["text-flame-crimson", "text-flame-scarlet"];
 const CHIP_BORDERS = [
   "border-flame-crimson/40",
   "border-flame-scarlet/40",
@@ -112,10 +112,10 @@ const CHIP_BORDERS = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative bg-flame-ink py-24 px-6 overflow-hidden">
+    <section id="skills" className="relative bg-flame-cream py-16 sm:py-20 px-6 overflow-hidden">
       <FlameGlow />
 
-      <div className="relative text-center mb-16">
+      <div className="relative text-center mb-10 sm:mb-12">
         <span className="inline-block px-4 py-1 rounded-full bg-flame-crimson text-flame-cream text-sm uppercase tracking-[0.2em] font-semibold mb-6">
           Toolbox
         </span>
@@ -131,7 +131,7 @@ export default function Skills() {
         <div className="w-24 h-1.5 mx-auto rounded-full bg-gradient-to-r from-flame-gold via-flame-crimson to-flame-scarlet" />
       </div>
 
-      <div className="relative max-w-5xl mx-auto space-y-14">
+      <div className="relative max-w-5xl mx-auto space-y-10">
         {CATEGORIES.map((cat, ci) => (
           <div key={cat.category}>
             <motion.h3
@@ -139,14 +139,15 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: ci * 0.05 }}
-              className="font-heading text-xl sm:text-2xl text-flame-gold mb-6 flex items-center gap-3"
+              className="font-heading text-xl sm:text-2xl text-flame-crimson mb-6 flex items-center gap-3"
             >
               <span className="w-2 h-6 rounded-full bg-gradient-to-b from-flame-gold to-flame-scarlet" />
               {cat.category}
             </motion.h3>
             <div className="flex flex-wrap gap-3 sm:gap-4">
               {cat.skills.map((skill, i) => {
-                const colorIndex = (ci + i) % 3;
+                const borderIndex = (ci + i) % 3;
+                const iconIndex = (ci + i) % 2;
                 return (
                   <motion.div
                     key={skill.name}
@@ -154,12 +155,12 @@ export default function Skills() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.5, delay: i * 0.05 }}
-                    className={`flex items-center gap-2 bg-flame-cream/5 border-2 ${CHIP_BORDERS[colorIndex]} rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-flame-crimson/5 hover:shadow-[0_0_20px_rgba(245,212,105,0.5)] transition-all`}
+                    className={`flex items-center gap-2 bg-flame-ink/5 border-2 ${CHIP_BORDERS[borderIndex]} rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-flame-crimson/5 hover:shadow-[0_0_20px_rgba(245,212,105,0.5)] transition-all`}
                   >
-                    <span className={`text-xl sm:text-2xl ${ICON_COLORS[colorIndex]}`}>
+                    <span className={`text-xl sm:text-2xl ${ICON_COLORS[iconIndex]}`}>
                       {skill.icon}
                     </span>
-                    <span className="text-sm sm:text-base font-medium text-flame-cream">
+                    <span className="text-sm sm:text-base font-medium text-flame-ink">
                       {skill.name}
                     </span>
                   </motion.div>

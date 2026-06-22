@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-flame-ink text-flame-cream px-6"
+      className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-flame-cream text-flame-ink px-6"
     >
       <FlameGlow />
       <FlameEmbers density="medium" />
@@ -54,7 +54,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="mt-4 text-center text-base sm:text-lg md:text-xl text-flame-cream/70 max-w-xl"
+        className="mt-4 text-center text-base sm:text-lg md:text-xl text-flame-ink/70 max-w-xl"
       >
         Full Stack Developer &amp; AI Automation Engineer — building web apps,
         LLM-driven tools, and intelligent automation systems.
@@ -68,7 +68,7 @@ export default function Hero() {
           opacity: { duration: 0.8, delay: 1 },
           y: { duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 1 },
         }}
-        className="absolute bottom-8 sm:bottom-10 flex flex-col items-center gap-2 text-flame-gold"
+        className="absolute bottom-8 sm:bottom-10 flex flex-col items-center gap-2 text-flame-crimson"
       >
         <span className="text-xs uppercase tracking-[0.3em]">Scroll</span>
         <span className="text-2xl">⌄</span>

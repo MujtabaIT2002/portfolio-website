@@ -8,8 +8,8 @@
   --flame-scarlet: #b81f3e;
   --flame-ink: #563d38;
 
-  --background: var(--flame-ink);
-  --foreground: var(--flame-cream);
+  --background: var(--flame-cream);
+  --foreground: var(--flame-ink);
 }
 
 @theme inline {
@@ -22,8 +22,8 @@
   --color-flame-scarlet: var(--flame-scarlet);
   --color-flame-ink: var(--flame-ink);
 
-  /* Use Sekaiwo everywhere */
-  --font-sans: var(--font-sekaiwo);
+  /* Sekaiwo for headings only, Inter for everything else */
+  --font-sans: var(--font-inter);
   --font-heading: var(--font-sekaiwo);
 }
 
@@ -34,23 +34,17 @@ html {
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-sekaiwo), serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Headings also use Sekaiwo */
 h1,
 h2,
 h3,
 h4,
 .font-heading {
-  font-family: var(--font-sekaiwo), serif;
+  font-family: var(--font-heading), serif;
   line-height: 1.35;
   padding-bottom: 0.12em;
-}
-
-/* Optional: make all elements inherit Sekaiwo */
-* {
-  font-family: inherit;
 }
 
 /* Hide scrollbar globally */

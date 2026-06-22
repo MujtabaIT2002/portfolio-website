@@ -44,7 +44,7 @@ export default function IntroMusicGate() {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 rounded-lg font-semibold text-base sm:text-lg bg-flame-gold text-flame-ink border-2 border-flame-gold shadow-[0_0_25px_rgba(245,212,105,0.5)] hover:shadow-[0_0_40px_rgba(245,212,105,0.8)] transition-shadow"
               >
-                🔥 Play with Sound
+                Play with Sound
               </motion.button>
               <motion.button
                 onClick={chooseSilence}

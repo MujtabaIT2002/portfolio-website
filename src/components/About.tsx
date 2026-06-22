@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-flame-ink py-24 px-6"
+      className="relative overflow-hidden bg-flame-cream py-16 sm:py-20 px-6"
     >
       <FlameGlow />
       <FlameEmbers density="low" />
@@ -39,7 +39,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-flame-cream/80 text-lg sm:text-xl leading-relaxed mb-6"
+          className="text-flame-ink/80 text-lg sm:text-xl leading-relaxed mb-6"
         >
           I&apos;m an AI and Full-Stack Developer who builds end-to-end
           applications with React.js, Node.js, Flask, and database-backed
@@ -52,7 +52,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-flame-cream/80 text-lg sm:text-xl leading-relaxed"
+          className="text-flame-ink/80 text-lg sm:text-xl leading-relaxed"
         >
           On the AI side, I work across machine learning, LLM fine-tuning
           (PEFT, QLoRA), computer vision, and workflow automation — building

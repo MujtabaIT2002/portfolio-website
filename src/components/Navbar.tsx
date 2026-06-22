@@ -39,8 +39,8 @@ export default function Navbar() {
   return (
     <nav
       className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-3xl
-                 bg-flame-ink/95 backdrop-blur-[20px] border-2 border-flame-scarlet/30
-                 shadow-[0_0_15px_rgba(195,58,51,0.25)] text-flame-cream
+                 bg-flame-cream/95 backdrop-blur-[20px] border-2 border-flame-scarlet/30
+                 shadow-[0_0_15px_rgba(195,58,51,0.25)] text-flame-ink
                  px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between rounded-2xl z-50
                  transition-all duration-500 overflow-hidden
                  hover:shadow-[0_0_25px_rgba(245,212,105,0.6)]"
@@ -54,7 +54,7 @@ export default function Navbar() {
                    text-sm sm:text-base hover:bg-flame-scarlet hover:scale-105
                    hover:shadow-[0_0_15px_rgba(195,58,51,0.6)] transition-all duration-300 whitespace-nowrap"
       >
-        📄 <span className="hidden sm:inline">Download </span>CV
+        <span className="hidden sm:inline">Download </span>CV
       </a>
 
       <div className="hidden lg:flex gap-1 text-base font-medium">
@@ -65,7 +65,7 @@ export default function Navbar() {
             className={`px-3 py-1.5 rounded-lg transition-colors ${
               activeId === link.href.slice(1)
                 ? "bg-flame-crimson text-flame-cream font-semibold"
-                : "text-flame-cream/70 hover:text-flame-gold hover:bg-flame-crimson/20"
+                : "text-flame-ink/70 hover:text-flame-crimson hover:bg-flame-crimson/10"
             }`}
           >
             {link.label}
@@ -83,7 +83,7 @@ export default function Navbar() {
       {isOpen && (
         <div
           className="absolute top-full left-0 w-full
-                     bg-flame-ink/95 backdrop-blur-[20px] border-t-2 border-flame-scarlet/30
+                     bg-flame-cream/95 backdrop-blur-[20px] border-t-2 border-flame-scarlet/30
                      shadow-[0_0_20px_rgba(195,58,51,0.35)] flex flex-col items-center
                      py-4 space-y-3 lg:hidden rounded-b-2xl"
         >
@@ -95,7 +95,7 @@ export default function Navbar() {
               className={`px-4 py-1.5 rounded-lg transition-colors ${
                 activeId === link.href.slice(1)
                   ? "bg-flame-crimson text-flame-cream font-semibold"
-                  : "text-flame-cream/70 hover:text-flame-gold"
+                  : "text-flame-ink/70 hover:text-flame-crimson"
               }`}
             >
               {link.label}
@@ -109,7 +109,7 @@ export default function Navbar() {
                        text-base hover:bg-flame-scarlet hover:scale-105
                        hover:shadow-[0_0_15px_rgba(195,58,51,0.6)] transition-all duration-300"
           >
-            📄 Download CV
+            Download CV
           </a>
         </div>
       )}
