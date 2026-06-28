@@ -62,7 +62,7 @@ export default function Hero() {
         transition={{ duration: 0.7, delay: 0.45 }}
         className="mt-4 text-center text-base sm:text-lg md:text-xl text-flame-ink/70 max-w-xl"
       >
-        Full Stack Developer &amp; AI Automation Engineer — building web apps,
+        Full Stack Developer &amp; AI Automation Engineer building web apps,
         LLM-driven tools, and intelligent automation systems.
       </motion.p>
 
