@@ -120,25 +120,34 @@ export default function Skills() {
           Toolbox
         </span>
         <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
-          className="text-3xl sm:text-4xl md:text-5xl mb-4 bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold bg-clip-text text-transparent"
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="font-jp text-3xl sm:text-4xl md:text-5xl mb-2 bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold bg-clip-text text-transparent"
         >
-          My Arsenal
+          技の数々
         </motion.h2>
-        <div className="w-24 h-1.5 mx-auto rounded-full bg-gradient-to-r from-flame-gold via-flame-crimson to-flame-scarlet" />
+        <p className="text-flame-ink/50 text-sm italic mb-4">My Arsenal</p>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="w-24 h-1.5 mx-auto rounded-full bg-gradient-to-r from-flame-gold via-flame-crimson to-flame-scarlet"
+        />
       </div>
 
       <div className="relative max-w-5xl mx-auto space-y-10">
-        {CATEGORIES.map((cat, ci) => (
+        {CATEGORIES.map((cat, ci) => {
+          const fromRight = ci % 2 === 1;
+          return (
           <div key={cat.category}>
             <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: ci * 0.05 }}
+              initial={{ opacity: 0, x: fromRight ? 60 : -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className="font-heading text-xl sm:text-2xl text-flame-crimson mb-6 flex items-center gap-3"
             >
               <span className="w-2 h-6 rounded-full bg-gradient-to-b from-flame-gold to-flame-scarlet" />
@@ -151,10 +160,15 @@ export default function Skills() {
                 return (
                   <motion.div
                     key={skill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.5, delay: i * 0.05 }}
+                    initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                    viewport={{ margin: "-100px" }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 12,
+                      delay: i * 0.05,
+                    }}
                     className={`flex items-center gap-2 bg-flame-ink/5 border-2 ${CHIP_BORDERS[borderIndex]} rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-flame-crimson/5 hover:shadow-[0_0_20px_rgba(245,212,105,0.5)] transition-all`}
                   >
                     <span className={`text-xl sm:text-2xl ${ICON_COLORS[iconIndex]}`}>
@@ -168,7 +182,8 @@ export default function Skills() {
               })}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

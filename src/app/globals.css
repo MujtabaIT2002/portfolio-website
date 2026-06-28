@@ -47,6 +47,12 @@ h4,
   padding-bottom: 0.12em;
 }
 
+/* Sekaiwo has no Japanese glyphs — used only for actual Japanese text */
+.font-jp {
+  font-family: var(--font-yuji-syuku), serif;
+  line-height: 1.4;
+}
+
 /* Hide scrollbar globally */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

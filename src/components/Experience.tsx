@@ -17,15 +17,22 @@ export default function Experience() {
           Career
         </span>
         <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
-          className="text-3xl sm:text-4xl md:text-5xl mb-4 bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold bg-clip-text text-transparent"
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="font-jp text-3xl sm:text-4xl md:text-5xl mb-2 bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold bg-clip-text text-transparent"
         >
-          My Journey
+          修行の道
         </motion.h2>
-        <div className="w-24 h-1.5 mx-auto rounded-full bg-gradient-to-r from-flame-gold via-flame-crimson to-flame-scarlet" />
+        <p className="text-flame-ink/50 text-sm italic mb-4">My Journey</p>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="w-24 h-1.5 mx-auto rounded-full bg-gradient-to-r from-flame-gold via-flame-crimson to-flame-scarlet"
+        />
       </div>
 
       <div className="relative max-w-4xl mx-auto">
@@ -44,13 +51,14 @@ export default function Experience() {
               >
                 {/* node marker */}
                 <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true, margin: "-80px" }}
+                  initial={{ scale: 0, rotate: -90 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ margin: "-100px" }}
                   transition={{
-                    duration: 0.4,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 10,
                     delay: index * 0.1 + 0.2,
-                    ease: "easeOut",
                   }}
                   className={`absolute left-4 md:left-1/2 -translate-x-1/2 top-1.5 w-4 h-4 rounded-full z-10 ${
                     isOngoing ? "animate-pulse" : ""
@@ -63,9 +71,9 @@ export default function Experience() {
                 />
 
                 <motion.div
-                  initial={{ opacity: 0, x: alignRight ? 40 : -40 }}
+                  initial={{ opacity: 0, x: alignRight ? 80 : -80 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
+                  viewport={{ margin: "-100px" }}
                   transition={{
                     duration: 0.6,
                     delay: index * 0.1,

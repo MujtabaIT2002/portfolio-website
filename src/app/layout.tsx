@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
+import { Inter, Yuji_Syuku } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import { MusicProvider } from "@/context/MusicContext";
 import "./globals.css";
@@ -13,6 +13,14 @@ const sekaiwo = localFont({
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+// Sekaiwo has no Japanese glyphs — Yuji Syuku is used only for actual
+// Japanese-language text via the .font-jp class, never as a Latin fallback.
+const yujiSyuku = Yuji_Syuku({
+  variable: "--font-yuji-syuku",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -30,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sekaiwo.variable} ${inter.variable} antialiased`}
+        className={`${sekaiwo.variable} ${inter.variable} ${yujiSyuku.variable} antialiased`}
       >
         <MusicProvider>
           <Navbar />

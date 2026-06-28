@@ -33,15 +33,22 @@ export default function Projects() {
           My Work
         </span>
         <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
-          className="text-3xl sm:text-4xl md:text-5xl mb-4 bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold bg-clip-text text-transparent"
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="font-jp text-3xl sm:text-4xl md:text-5xl mb-2 bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold bg-clip-text text-transparent"
         >
-          Projects
+          作品
         </motion.h2>
-        <div className="w-24 h-1.5 mx-auto rounded-full bg-gradient-to-r from-flame-gold via-flame-crimson to-flame-scarlet" />
+        <p className="text-flame-ink/50 text-sm italic mb-4">Projects</p>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="w-24 h-1.5 mx-auto rounded-full bg-gradient-to-r from-flame-gold via-flame-crimson to-flame-scarlet"
+        />
       </div>
 
       <div
@@ -56,10 +63,10 @@ export default function Projects() {
             <motion.div
               key={project.id}
               layout
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: (i % 4) * 0.07 }}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ margin: "-60px" }}
+              transition={{ duration: 0.5, delay: (i % 4) * 0.07, ease: "easeOut" }}
               className={`rounded-2xl overflow-hidden border-2 bg-flame-cream transition-colors duration-300 ${
                 isExpanded
                   ? "border-flame-crimson/70 shadow-[0_10px_35px_rgba(195,58,51,0.2)]"
@@ -78,6 +85,11 @@ export default function Projects() {
                     src={`/${project.image}`}
                     alt={project.title}
                     fill
+                    sizes={
+                      isFeatured
+                        ? "(max-width: 639px) 100vw, 50vw"
+                        : "(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                    }
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (

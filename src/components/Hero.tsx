@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import FlameEmbers from "./FlameEmbers";
 import FlameGlow from "./FlameGlow";
 
+const HERO_VIEWPORT = { margin: "0px" };
+
 export default function Hero() {
   return (
     <section
@@ -15,9 +17,10 @@ export default function Hero() {
       <FlameEmbers density="medium" />
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.85 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        initial={{ opacity: 0, y: -120, scale: 0.85 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={HERO_VIEWPORT}
+        transition={{ type: "spring", stiffness: 170, damping: 14 }}
         className="relative mb-6 sm:mb-8"
       >
         <div className="absolute inset-0 rounded-full bg-flame-gold/50 blur-2xl scale-110 animate-pulse" />
@@ -34,7 +37,8 @@ export default function Hero() {
 
       <motion.span
         initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={HERO_VIEWPORT}
         transition={{ duration: 0.6, delay: 0.15 }}
         className="px-4 py-1 rounded-full bg-flame-crimson text-flame-cream text-sm uppercase tracking-[0.2em] font-semibold mb-4"
       >
@@ -42,18 +46,20 @@ export default function Hero() {
       </motion.span>
 
       <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
+        initial={{ opacity: 0, scale: 0.6, rotate: -6 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        viewport={HERO_VIEWPORT}
+        transition={{ type: "spring", stiffness: 260, damping: 11, delay: 0.2 }}
         className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-center bg-gradient-to-r from-flame-crimson via-flame-scarlet to-flame-gold bg-clip-text text-transparent"
       >
         Mujtaba Tariq
       </motion.h1>
 
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={HERO_VIEWPORT}
+        transition={{ duration: 0.7, delay: 0.45 }}
         className="mt-4 text-center text-base sm:text-lg md:text-xl text-flame-ink/70 max-w-xl"
       >
         Full Stack Developer &amp; AI Automation Engineer — building web apps,
