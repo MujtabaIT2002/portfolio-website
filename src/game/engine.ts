@@ -352,6 +352,22 @@ export class Engine {
     else if (!this.p.moving) this.tryStep();
   }
 
+  /** Virtual joystick: 0 down, 1 up, 2 left, 3 right, null = released */
+  setStick(d: number | null) {
+    if (this.paused) return;
+    const t0 = performance.now();
+    if (d === null) {
+      this.held.length = 0;
+      return;
+    }
+    this.held = [d as Dir];
+    this.path.length = 0;
+    this.pathAction = null;
+    this.target = null;
+    if (!this.p.moving) this.tryStep();
+    this.inputLat = performance.now() - t0;
+  }
+
   private interact() {
     const fx = this.p.x + DX[this.p.dir];
     const fy = this.p.y + DY[this.p.dir];

@@ -3,14 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import { PIECES } from "@/game/spriteData";
 import type { PanelProps } from "./types";
 
-// Every position verified with python-chess: exactly one move mates.
+// Every position verified with python-chess: legal position, exactly one move mates.
 const PUZZLES = [
   { name: "BACK-RANK BLUES", fen: "6k1/5ppp/8/8/8/8/5PPP/R5K1 w", sol: "a1a8" },
   { name: "SCHOLAR'S STRIKE", fen: "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w", sol: "h5f7" },
   { name: "SMOTHERED", fen: "6rk/6pp/8/6N1/8/8/8/6K1 w", sol: "g5f7" },
   { name: "ARABIAN NIGHT", fen: "7k/7p/5N2/8/8/8/8/6RK w", sol: "g1g8" },
   { name: "FOOL'S REVENGE", fen: "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b", sol: "d8h4" },
-  { name: "EPAULETTES", fen: "3rkr2/8/8/8/8/8/8/4Q1K1 w", sol: "e1e6" },
+  { name: "EPAULETTES", fen: "3rkr2/8/8/8/8/7Q/8/6K1 w", sol: "h3e6" },
 ];
 
 type Board = (string | null)[]; // index = rank*8 + file, rank 0 = "1"

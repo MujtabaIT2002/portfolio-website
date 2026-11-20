@@ -135,24 +135,31 @@ export function analyse(games: any[], user = CHESS_USER): Analysis {
 const BASE = `https://api.chess.com/pub/player/${CHESS_USER}`;
 const HEADERS = { "User-Agent": "mujtabatariq.dev portfolio (chess stats widget)" };
 
+/** fetch with a hard timeout so a slow chess.com never hangs the function */
+function getJSON(url: string, revalidate: number, ms = 8000) {
+  return fetch(url, { headers: HEADERS, next: { revalidate }, signal: AbortSignal.timeout(ms) } as RequestInit).then((r) =>
+    r.ok ? r.json() : Promise.reject(new Error(`${r.status} ${url}`)),
+  );
+}
+
 /** Server-side: full data incl. game-history analysis. */
 export async function fetchChessServer(): Promise<ChessData> {
-  const opts = (revalidate: number) => ({ headers: HEADERS, next: { revalidate } }) as RequestInit;
   const [stats, profile, arch] = await Promise.all([
-    fetch(`${BASE}/stats`, opts(1800)).then((r) => (r.ok ? r.json() : Promise.reject(r.status))),
-    fetch(BASE, opts(3600)).then((r) => (r.ok ? r.json() : null)),
-    fetch(`${BASE}/games/archives`, opts(3600)).then((r) => (r.ok ? r.json() : { archives: [] })),
+    getJSON(`${BASE}/stats`, 1800),
+    getJSON(BASE, 3600).catch(() => null),
+    getJSON(`${BASE}/games/archives`, 3600).catch(() => ({ archives: [] })),
   ]);
   const months: string[] = (arch?.archives ?? []).slice(-18);
+  // chess.com asks clients not to hammer the API in parallel → max 3 requests at a time.
+  // Finished months never change, so they are cached for a day; the current month for 30 min.
   const games: any[] = [];
-  const results = await Promise.all(
-    months.map((u, i) =>
-      fetch(u, opts(i === months.length - 1 ? 1800 : 86400))
-        .then((r) => (r.ok ? r.json() : { games: [] }))
-        .catch(() => ({ games: [] })),
-    ),
-  );
-  for (const r of results) games.push(...(r.games ?? []));
+  for (let i = 0; i < months.length; i += 3) {
+    const batch = months.slice(i, i + 3);
+    const res = await Promise.all(
+      batch.map((u) => getJSON(u, u === months[months.length - 1] ? 1800 : 86400).catch(() => ({ games: [] }))),
+    );
+    for (const r of res) games.push(...(r.games ?? []));
+  }
   return { source: "live", fetchedAt: Date.now(), ...parseStats(stats, profile), analysis: games.length ? analyse(games) : null };
 }
 
