@@ -1,25 +1,47 @@
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
-import RengokuClosing from "@/components/RengokuClosing";
-import IntroMusicGate from "@/components/IntroMusicGate";
-import MusicToggle from "@/components/MusicToggle";
+import Portfolio from "@/ui/Portfolio";
+import { PROFILE, EXPERIENCE, PROJECTS, SKILLS, LINKS } from "@/data/cv";
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden">
-      <IntroMusicGate />
-      <MusicToggle />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
-      <RengokuClosing />
-    </main>
+    <>
+      <Portfolio />
+      {/* Plain-text résumé for screen readers, search engines and no-JS visitors */}
+      <article className="sr-only">
+        <h1>
+          {PROFILE.name} — {PROFILE.title}
+        </h1>
+        <p>{PROFILE.summary}</p>
+        <h2>Experience</h2>
+        {EXPERIENCE.map((r) => (
+          <section key={r.id}>
+            <h3>
+              {r.role} — {r.company} ({r.start} – {r.end ?? "Present"})
+            </h3>
+            <ul>
+              {r.bullets.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
+        <h2>Projects</h2>
+        {PROJECTS.map((p) => (
+          <section key={p.id}>
+            <h3>{p.title}</h3>
+            <p>{p.blurb}</p>
+          </section>
+        ))}
+        <h2>Skills</h2>
+        <p>{SKILLS.flatMap((g) => g.items.map((i) => i.name)).join(", ")}</p>
+        <h2>Contact</h2>
+        <ul>
+          {LINKS.map((l) => (
+            <li key={l.id}>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </>
   );
 }

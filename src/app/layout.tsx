@@ -1,50 +1,46 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Inter, Yuji_Syuku } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import { MusicProvider } from "@/context/MusicContext";
 import "./globals.css";
 
-const sekaiwo = localFont({
-  src: "../fonts/Sekaiwo-Regular.ttf",
-  variable: "--font-sekaiwo",
+const pixel = localFont({
+  src: "../fonts/PressStart2P.woff2",
+  variable: "--font-pixel",
   weight: "400",
+  display: "swap",
+  preload: true,
 });
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-// Sekaiwo has no Japanese glyphs — Yuji Syuku is used only for actual
-// Japanese-language text via the .font-jp class, never as a Latin fallback.
-const yujiSyuku = Yuji_Syuku({
-  variable: "--font-yuji-syuku",
+const term = localFont({
+  src: "../fonts/VT323.woff2",
+  variable: "--font-term",
   weight: "400",
-  subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
-  title: "Mujtaba Tariq | Full Stack & AI Developer",
+  title: "Mujtaba Tariq — MUJTABA.EXE | AI / Full-Stack Developer",
   description:
-    "Portfolio of Mujtaba Tariq — Full Stack Developer and AI Automation Engineer specializing in MERN, LLM fine-tuning, and intelligent automation systems.",
+    "Explore Mujtaba Tariq's interactive pixel-art portfolio: an island of ASCII oceans, quests and arcade cabinets. AI / Full-Stack developer — LLM fine-tuning, automation systems, MERN.",
+  metadataBase: new URL("https://mujtabatariq.dev"),
+  openGraph: {
+    title: "MUJTABA.EXE — an explorable pixel-art portfolio",
+    description: "AI / Full-Stack Developer · LLM Fine-Tuning · Automation Systems",
+    type: "website",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0b0624",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${sekaiwo.variable} ${inter.variable} ${yujiSyuku.variable} antialiased`}
-      >
-        <MusicProvider>
-          <Navbar />
-          {children}
-        </MusicProvider>
-      </body>
+    <html lang="en" className={`${pixel.variable} ${term.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
